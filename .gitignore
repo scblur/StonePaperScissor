@@ -1,101 +1,107 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+import random
+a=0
+user_points = 0
+computer_points = 0
 
-# C extensions
-*.so
 
-# Distribution / packaging
-.Python
-env/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+def fight(user_input,computer_input):
+    
+    print("Computer input is",computer_input)
+    global user_points
+    global computer_points
+ 
+    if(user_input == computer_input):
+        return
+    elif(user_input == 'st'):
+        if(computer_input == 'Paper'):
+            #inc_cp(computer_points)
+            computer_points = computer_points + 1
+        elif(computer_input == 'Scissor'):
+            #inc_up(user_points)
+            user_points = user_points + 1
+            
+    elif(user_input == 'p'):
+        if(computer_input == 'Scissor'):
+            #inc_cp(computer_points)
+            computer_points = computer_points + 1
+            #user_points = 0
+        elif(computer_input == 'Stone'):
+            #inc_up(user_points)
+            user_points = user_points + 1
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
+    elif(user_input == 'sc'):
+        if(computer_input == 'Stone'):
+            #inc_cp(computer_points)
+            computer_points = computer_points + 1
+        elif(computer_input == 'Paper'):
+            #inc_up(user_points)
+            user_points = user_points + 1
 
-# Translations
-*.mo
-*.pot
 
-# Django stuff:
-*.log
-local_settings.py
 
-# Flask stuff:
-instance/
-.webassets-cache
 
-# Scrapy stuff:
-.scrapy
+##def calculate_r(user_points,computer_points):
+##   
+##    print('''Computer points are: %d
+##
+##    User points are: %d'''%(computer_points,user_points))
+##    
+##    if(computer_points>user_points):
+##        print("You Lost. :(")
+##    elif(user_points>computer_points):
+##        print("Congratulations!!!! You won :)")
+##    elif(user_points == computer_points):
+##        print("It's a tie!!!!!!!!")
 
-# Sphinx documentation
-docs/_build/
 
-# PyBuilder
-target/
+##def inc_up(user_points):
+##   
+##    user_points = user_points + 1
+##    return user_points
+##def inc_cp(computer_points):
+##   
+##    computer_points = computer_points + 1
+##    return computer_points
+##def assign_val():
+##   
+##    user_points = 0
+##    computer_points = 0
+    
 
-# Jupyter Notebook
-.ipynb_checkpoints
 
-# pyenv
-.python-version
 
-# celery beat schedule file
-celerybeat-schedule
+print("STONE PAPER SCISSOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+#assign_val()
+i=0
+while(i==0):
+    li = ["Stone","Paper","Scissor"]
+    a = random.randint(0,2)
+    computer_input = li[a]
+    user_input = input('''Enter your choice:
 
-# SageMath parsed files
-*.sage.py
+    st for Stone.
+    p for Paper.
+    sc for Scissor.
+    E to exit.
+    Please enter your choice.''')
+    if(user_input == 'E'):
+        print("Thank you for playing")
+        print('''Computer points are: %d
 
-# dotenv
-.env
-
-# virtualenv
-.venv
-venv/
-ENV/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
+        User points are: %d'''%(computer_points,user_points))
+    
+        if(computer_points>user_points):
+            print("You Lost. :(")
+        elif(user_points>computer_points):
+            print("Congratulations!!!! You won :)")
+        elif(user_points == computer_points):
+            print("It's a tie!!!!!!!!")
+            i=-1
+            break
+        break
+    elif(user_input == 'st' or user_input == 'p' or user_input == 'sc'):
+        fight(user_input,computer_input)
+    else:
+         print("Enter correct choice!!!!!!!")
